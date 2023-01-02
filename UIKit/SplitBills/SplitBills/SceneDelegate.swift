@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  SplitBills
 //
-//  Created by Sezer İltekin on 1.01.2023.
+//  Created by Sezer İltekin on 2.01.2023.
 //
 
 import UIKit
