@@ -33,4 +33,8 @@ struct Bill {
         }
     }
     
+    func createSummary() -> String {
+        return "Split between \(Int(splitOption ?? 0)) people, with \(Int(tipPercent ?? 0))% tip."
+    }
+    
 }

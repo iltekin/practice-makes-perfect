@@ -25,6 +25,17 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toResultView" {
+            if let resultVC = segue.destination as? ResultViewController {
+                let total = billTotalTextField.text?.commaToDot() ?? "0"
+                bill.billTotal = Float(total)
+                resultVC.totalPerPerson = bill.calculate()
+                resultVC.summary = bill.createSummary()
+            }
+        }
+    }
+    
     @IBAction func tipButtonTapped(_ sender: UIButton) {
         
         clearBackgroundOfTipButtons()
@@ -50,15 +61,11 @@ class ViewController: UIViewController {
         bill.splitOption = Float(sender.value)
         splitLabel.text = String(Int(sender.value))
     }
-    
-    
-    @IBAction func calculateTapped(_ sender: Any) {
-        let total = billTotalTextField.text ?? "0"
-        bill.billTotal = Float(total)
-        let result = bill.calculate()
-        print(result)
-    }
-    
 
 }
 
+extension String {
+    func commaToDot() -> String {
+        return self.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+    }
+}
