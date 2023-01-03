@@ -7,4 +7,8 @@
 
 import Foundation
 
-
+extension String {
+    func commaToDot() -> String {
+        return self.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
+    }
+}

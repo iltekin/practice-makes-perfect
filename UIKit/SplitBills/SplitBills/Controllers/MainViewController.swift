@@ -7,22 +7,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
-    @IBOutlet weak var billTotalTextField: UITextField!
-    @IBOutlet weak var splitLabel: UILabel!
-    @IBOutlet var tipButtons: [UIButton]!
+    @IBOutlet weak var billTotalTextField:  UITextField!
+    @IBOutlet weak var splitLabel:          UILabel!
+    @IBOutlet var tipButtons:               [UIButton]!
     
     var bill = Bill()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bill.splitOption = 2
-        bill.tipPercent = 10
-        
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
-        
+        configure()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,6 +28,20 @@ class ViewController: UIViewController {
                 resultVC.totalPerPerson = bill.calculate()
                 resultVC.summary = bill.createSummary()
             }
+        }
+    }
+    
+    func configure() {
+        bill.splitOption = 2
+        bill.tipPercent = 10
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func clearBackgroundOfTipButtons() {
+        tipButtons.forEach { button in
+            button.backgroundColor = .clear
+            button.setTitleColor(.systemGreen, for: .normal)
         }
     }
     
@@ -49,23 +58,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func clearBackgroundOfTipButtons() {
-        tipButtons.forEach { button in
-            button.backgroundColor = .clear
-            button.setTitleColor(.systemGreen, for: .normal)
-        }
-    }
-    
-    
     @IBAction func splitStepperChanged(_ sender: UIStepper) {
-        bill.splitOption = Float(sender.value)
-        splitLabel.text = String(Int(sender.value))
+        bill.splitOption    = Float(sender.value)
+        splitLabel.text     = String(Int(sender.value))
     }
 
-}
-
-extension String {
-    func commaToDot() -> String {
-        return self.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
-    }
 }
