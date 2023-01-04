@@ -34,8 +34,8 @@
 		D419A19629660C720018E907 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
 		D419A19829661DE00018E907 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		D42BB9F92966379500B6793F /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		D450D74829662E65008962FF /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		D450D74929662FC0008962FF /* Config-sample.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Config-sample.xcconfig"; sourceTree = "<group>"; };
+		D42BB9FB29663B6A00B6793F /* Config.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.release.xcconfig; sourceTree = "<group>"; };
+		D42BB9FC29663B7300B6793F /* Config.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +52,8 @@
 		ADAA27A4231BBFAF00365194 = {
 			isa = PBXGroup;
 			children = (
-				D450D74929662FC0008962FF /* Config-sample.xcconfig */,
-				D450D74829662E65008962FF /* Config.xcconfig */,
+				D42BB9FB29663B6A00B6793F /* Config.release.xcconfig */,
+				D42BB9FC29663B7300B6793F /* Config.debug.xcconfig */,
 				ADAA27AF231BBFAF00365194 /* Clima */,
 				ADAA27AE231BBFAF00365194 /* Products */,
 			);
@@ -216,7 +216,7 @@
 /* Begin XCBuildConfiguration section */
 		ADAA27BF231BBFB300365194 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D450D74829662E65008962FF /* Config.xcconfig */;
+			baseConfigurationReference = D42BB9FB29663B6A00B6793F /* Config.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -278,7 +278,7 @@
 		};
 		ADAA27C0231BBFB300365194 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D450D74829662E65008962FF /* Config.xcconfig */;
+			baseConfigurationReference = D42BB9FB29663B6A00B6793F /* Config.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -370,7 +370,7 @@
 		};
 		D42BB9F72966343900B6793F /* Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D450D74829662E65008962FF /* Config.xcconfig */;
+			baseConfigurationReference = D42BB9FB29663B6A00B6793F /* Config.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
